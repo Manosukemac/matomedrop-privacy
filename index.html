@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +45,28 @@
             font-size: 0.9rem;
         }
 
+        /* --- 言語切り替えボタンのスタイル --- */
+        .lang-switcher {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .lang-switcher button {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            background: white;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .lang-switcher button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
         .summary-card {
             background: linear-gradient(135deg, #eef2ff, #f8f9fa);
             border-left: 4px solid var(--accent-color);
@@ -62,7 +85,7 @@
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         h2 {
@@ -96,99 +119,201 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            section { padding: 20px; }
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <header>
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">最終更新日：2026年8月14日 / Last updated: August 14, 2026</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1 id="page-title">Privacy Policy</h1>
+            <p class="last-updated">最終更新日：2026年8月14日 / Last updated: August 14, 2026</p>
+        </header>
 
-    <div class="summary-card">
-        <h2>💡 要約 (Quick Summary)</h2>
-        <p><strong style="font-size: 1.1rem;">MatomeDropは、ユーザーの個人データを収集しません。</strong><br>
-        すべての処理はデバイス内（On-device）で行われ、開発者がデータにアクセスしたり、広告やトラッキングに使用したりすることはありません。</p>
-    </div>
-
-    <section id="jp">
-        <h2>1. 概要</h2>
-        <p>MatomeDrop（以下「本アプリ」）は、写真、連絡先、書類を選んでAirDropで共有するためのアプリです。本アプリの開発者は、本アプリを通じて個人データを収集しません。本アプリは、開発者が運営するサーバー、広告SDK、解析SDK、トラッキング技術を使用しません。</p>
-
-        <h2>2. 端末内で扱うデータと利用目的</h2>
-        <p>本アプリは、ユーザーが選択した写真、連絡先、書類と、それらの表示名、端末内の参照情報、送信履歴を、送信準備、再送、端末内のおすすめ表示のために処理します。これらは端末内だけで処理・保存され、開発者はアクセスできません。</p>
-        
-        <div style="margin-top: 20px;">
-            <span class="device-badge">iOS / iPadOS</span>
-            <p>Appleが提供するシステムピッカーを使用し、ユーザーが選択した項目だけを受け取ります。写真ライブラリ全体または連絡先全体へのアクセス許可は要求しません。</p>
-            
-            <span class="device-badge" style="background:#d1e7dd;">macOS</span>
-            <p>ユーザーの許可後に写真ライブラリと連絡先へアクセスし、共有候補を表示します。連絡先はユーザーが選択したフィールドだけをvCardに含めます。書類は、ユーザーが選択またはドラッグ＆ドロップしたものだけを扱います。</p>
+        <!-- 言語切り替えボタン -->
+        <div class="lang-switcher">
+            <button onclick="switchLanguage('ja')" id="btn-ja" class="active">日本語</button>
+            <button onclick="switchLanguage('en')" id="btn-en">English</button>
         </div>
 
-        <h2>3. 共有とAppleのシステムサービス</h2>
-        <p>ユーザーが共有を実行すると、選択した項目はAppleのAirDrop機能を通じて、ユーザーが選んだ受信相手へ送信されます。これはユーザーが開始する端末間転送であり、開発者によるデータ収集ではありません。</p>
-        <p>iCloud写真にのみ保存された項目の取得、端末バックアップ、AirDrop、SiriやSpotlightの提案など、Appleのシステムサービスによる処理にはAppleのプライバシーポリシーとユーザーのシステム設定が適用されます。本アプリの開発者は、これらのAppleサービスが処理するデータへアクセスしません。</p>
-        <p>macOSのSiriとSpotlightへの提案は初期状態で無効です。ユーザーが有効にした場合も、送信カテゴリ（写真・書類・連絡先）と件数だけをmacOSへ提供し、連絡先名、電話番号、住所、ファイル名、写真そのものは含めません。</p>
+        <div class="summary-card">
+            <h2 id="summary-title">💡 要約 (Quick Summary)</h2>
+            <!-- 要約の日本語部分 -->
+            <div id="summary-ja">
+                <p><strong style="font-size: 1.1rem;">MatomeDropは、ユーザーの個人データを収集しません。</strong><br>
+                    すべての処理はデバイス内（On-device）で行われ、開発者がデータにアクセスしたり、広告やトラッキングに使用したりすることはありません。</p>
+            </div>
+            <!-- 要約の英語部分 -->
+            <div id="summary-en" style="display: none;">
+                <p><strong style="font-size: 1.1rem;">MatomeDrop does not collect any personal data from
+                        users.</strong><br>
+                    All processing is done on-device, and developers cannot access the data or use it for advertising or
+                    tracking.</p>
+            </div>
+        </div>
 
-        <h2>4. 第三者提供、広告、解析、トラッキング</h2>
-        <p>本アプリは、開発者が運営するサーバーや第三者の広告・解析サービスへデータを送信しません。広告目的の利用、ユーザープロファイルの作成、アプリやWebサイトをまたぐトラッキングは行いません。</p>
+        <!-- 日本語セクション -->
+        <section id="jp">
+            <h2>1. 概要</h2>
+            <p>MatomeDrop（以下「本アプリ」）は、写真、連絡先、書類を選んでAirDropで共有するためのアプリです。本アプリの開発者は、本アプリを通じて個人データを収集しません。本アプリは、開発者が運営するサーバー、広告SDK、解析SDK、トラッキング技術を使用しません。
+            </p>
 
-        <h2>5. 保存期間と削除</h2>
-        <p>送信リスト、選択項目の端末内コピーまたは参照、送信履歴は、ユーザーが削除するまで端末内に保持されます。アプリ内の「設定」から「送信リストと履歴を削除」を選ぶと、本アプリが保存した送信リスト、項目のコピーまたは参照、および送信履歴を削除できます。元の写真、連絡先、書類は削除されません。</p>
+            <h2>2. 端末内で扱うデータと利用目的</h2>
+            <p>本アプリは、ユーザーが選択した写真、連絡先、書類と、それらの表示名、端末内の参照情報、送信履歴を、送信準備、再送、端末内のおすすめ表示のために処理します。これらは端末内だけで処理・保存され、開発者はアクセスできません。
+            </p>
 
-        <h2>6. 権限と同意の撤回</h2>
-        <p>macOSの写真・連絡先の許可は、システム設定からいつでも変更または取り消せます。許可を取り消すと、関連する選択・再送機能は利用できなくなります。SiriとSpotlightへの新しい提案は、アプリ内設定でいつでも停止できます。</p>
+            <div style="margin-top: 20px;">
+                <span class="device-badge">iOS / iPadOS</span>
+                <p>Appleが提供するシステムピッカーを使用し、ユーザーが選択した項目だけを受け取ります。写真ライブラリ全体または連絡先全体へのアクセス許可は要求しません。</p>
 
-        <h2>7. ポリシーの変更</h2>
-        <p>本アプリのデータ取扱いが変わる場合、本ポリシーとApp Store ConnectのApp Privacy申告を更新し、重要な変更はアプリ内または公開ページで案内します。</p>
+                <span class="device-badge" style="background:#d1e7dd;">macOS</span>
+                <p>ユーザーの許可後に写真ライブラリと連絡先へアクセスし、共有候補を表示します。連絡先はユーザーが選択したフィールドだけをvCardに含めます。書類は、ユーザーが選択またはドラッグ＆ドロップしたものだけを扱います。
+                </p>
+            </div>
 
-        <h2>8. お問い合わせ</h2>
-        <p>本ポリシーに関するお問い合わせは、MatomeDropのApp Store製品ページに記載された開発者サポート窓口をご利用ください。</p>
-    </section>
+            <h2>3. 共有とAppleのシステムサービス</h2>
+            <p>ユーザーが共有を実行すると、選択した項目はAppleのAirDrop機能を通じて、ユーザーが選んだ受信相手へ送信されます。これはユーザーが開始する端末間転送であり、開発者によるデータ収集ではありません。</p>
+            <p>iCloud写真にのみ保存された項目の取得、端末バックアップ、AirDrop、SiriやSpotlightの提案など、Appleのシステムサービスによる処理にはAppleのプライバシーポリシーとユーザーのシステム設定が適用されます。本アプリの開発者は、これらのAppleサービスが処理するデータへアクセスしません。
+            </p>
+            <p>macOSのSiriとSpotlightへの提案は初期状態で無効です。ユーザーが有効にした場合も、送信カテゴリ（写真・書類・連絡先）と件数だけをmacOSへ提供し、連絡先名、電話番号、住所、ファイル名、写真そのものは含めません。
+            </p>
 
-    <div class="lang-separator">
-        <p>English Version Below</p>
+            <h2>4. 第三者提供、広告、解析、トラッキング</h2>
+            <p>本アプリは、開発者が運営するサーバーや第三者の広告・解析サービスへデータを送信しません。広告目的の利用、ユーザープロファイルの作成、アプリやWebサイトをまたぐトラッキングは行いません。</p>
+
+            <h2>5. 保存期間と削除</h2>
+            <p>送信リスト、選択項目の端末内コピーまたは参照、送信履歴は、ユーザーが削除するまで端末内に保持されます。アプリ内の「設定」から「送信リストと履歴を削除」を選ぶと、本アプリが保存した送信リスト、項目のコピーまたは参照、および送信履歴を削除できます。元の写真、連絡先、書類は削除されません。
+            </p>
+
+            <h2>6. 権限と同意の撤回</h2>
+            <p>macOSの写真・連絡先の許可は、システム設定からいつでも変更または取り消せます。許可を取り消すと、関連する選択・再送機能は利用できなくなります。SiriとSpotlightへの新しい提案は、アプリ内設定でいつでも停止できます。
+            </p>
+
+            <h2>7. ポリシーの変更</h2>
+            <p>本アプリのデータ取扱いが変わる場合、本ポリシーとApp Store ConnectのApp Privacy申告を更新し、重要な変更はアプリ内または公開ページで案内します。</p>
+
+            <h2>8. お問い合わせ</h2>
+            <p>本ポリシーに関するお問い合わせは、MatomeDropのApp Store製品ページに記載された開発者サポート窓口をご利用ください。</p>
+        </section>
+
+        <div class="lang-separator">
+            <p>English Version Below</p>
+        </div>
+
+        <!-- 英語セクション -->
+        <section id="en" style="display: none;">
+            <h2>1. Overview</h2>
+            <p>MatomeDrop (the “App”) helps people select photos, contacts, and documents to share with AirDrop. The
+                developer does not collect personal data through the App. The App uses no developer-operated server,
+                advertising SDK, analytics SDK, or tracking technology.</p>
+
+            <h2>2. Data handled on your device and why</h2>
+            <p>The App processes the photos, contacts, and documents you select, together with their display names,
+                on-device references, and transfer history, to prepare transfers, repeat transfers, and make on-device
+                recommendations. This information is processed and stored only on your device and is not accessible to
+                the developer.</p>
+            <p>On iOS and iPadOS, the App uses Apple’s system pickers for photos, contacts, and documents. The App
+                receives only the items you select and does not request access to your entire photo library or contact
+                list.</p>
+            <p>On macOS, the App accesses Photos and Contacts after you grant permission so it can display items
+                available to share. A contact vCard contains only the fields you select. The App handles only documents
+                that you select or drag into the App.</p>
+
+            <h2>3. Sharing and Apple system services</h2>
+            <p>When you start sharing, Apple’s AirDrop feature sends the selected items to the recipient you choose.
+                This is a user-initiated device-to-device transfer and is not data collection by the developer.</p>
+            <p>Apple’s privacy policy and your system settings apply to processing by Apple system services, including
+                retrieving items stored only in iCloud Photos, device backups, AirDrop, and Siri or Spotlight
+                suggestions. The App’s developer cannot access data processed by those Apple services.</p>
+            <p>Siri and Spotlight suggestions are off by default on macOS. If you enable them, the App provides macOS
+                only with the transfer category (photo, document, or contact) and item count. It does not include
+                contact names, phone numbers, addresses, filenames, or photo content.</p>
+
+            <h2>4. Third parties, advertising, analytics, and tracking</h2>
+            <p>The App does not send data to a developer-operated server or a third-party advertising or analytics
+                service. It does not use data for advertising, create user profiles, or track people across apps or
+                websites.</p>
+
+            <h2>5. Retention and deletion</h2>
+            <p>The Send List, on-device copies or references for selected items, and transfer history remain on your
+                device until you delete them. In the App, choose Settings and then Delete Send List and History to
+                remove the Send List, copies or references stored by the App, and transfer history. Your original
+                photos, contacts, and documents are not deleted.</p>
+
+            <h2>6. Permissions and withdrawing consent</h2>
+            <p>You can change or revoke Photos and Contacts permissions for the macOS App at any time in System
+                Settings. Related selection and repeat-transfer features stop working after access is revoked. You can
+                stop new Siri and Spotlight suggestions at any time in the App’s settings.</p>
+
+            <h2>7. Changes to this policy</h2>
+            <p>If the App’s data practices change, the developer will update this policy and the App Privacy answers in
+                App Store Connect. Material changes will be communicated in the App or on this public page.</p>
+
+            <h2>8. Contact</h2>
+            <p>For questions about this policy, use the developer support contact listed on the MatomeDrop product page
+                in the App Store.</p>
+        </section>
+
+        <footer>
+            &copy; 2026 MatomeDrop. All rights reserved.
+        </footer>
     </div>
 
-    <section id="en" style="opacity: 0.9;">
-        <h2>1. Overview</h2>
-        <p>MatomeDrop (the “App”) helps people select photos, contacts, and documents to share with AirDrop. The developer does not collect personal data through the App. The App uses no developer-operated server, advertising SDK, analytics SDK, or tracking technology.</p>
+    <script>
+        /**
+         * 言語を切り替える関数
+         * @param {string} lang - 'ja' または 'en'
+         */
+        function switchLanguage(lang) {
+            // 各要素の取得
+            const jpSection = document.getElementById('jp');
+            const enSection = document.getElementById('en');
+            const summaryJa = document.getElementById('summary-ja');
+            const summaryEn = document.getElementById('summary-en');
+            const separator = document.querySelector('.lang-separator');
 
-        <h2>2. Data handled on your device and why</h2>
-        <p>The App processes the photos, contacts, and documents you select, together with their display names, on-device references, and transfer history, to prepare transfers, repeat transfers, and make on-device recommendations. This information is processed and stored only on your device and is not accessible to the developer.</p>
-        <p>On iOS and iPadOS, the App uses Apple’s system pickers for photos, contacts, and documents. The App receives only the items you select and does not request access to your entire photo library or contact list.</p>
-        <p>On macOS, the App accesses Photos and Contacts after you grant permission so it can display items available to share. A contact vCard contains only the fields you select. The App handles only documents that you select or drag into the App.</p>
+            const btnJa = document.getElementById('btn-ja');
+            const btnEn = document.getElementById('btn-en');
 
-        <h2>3. Sharing and Apple system services</h2>
-        <p>When you start sharing, Apple’s AirDrop feature sends the selected items to the recipient you choose. This is a user-initiated device-to-device transfer and is not data collection by the developer.</p>
-        <p>Apple’s privacy policy and your system settings apply to processing by Apple system services, including retrieving items stored only in iCloud Photos, device backups, AirDrop, and Siri or Spotlight suggestions. The App’s developer cannot access data processed by those Apple services.</p>
-        <p>Siri and Spotlight suggestions are off by default on macOS. If you enable them, the App provides macOS only with the transfer category (photo, document, or contact) and item count. It does not include contact names, phone numbers, addresses, filenames, or photo content.</p>
+            if (lang === 'ja') {
+                // 日本語を表示し、英語を隠す
+                jpSection.style.display = 'block';
+                enSection.style.display = 'none';
+                summaryJa.style.display = 'block';
+                summaryEn.style.display = 'none';
+                separator.style.display = 'none';
 
-        <h2>4. Third parties, advertising, analytics, and tracking</h2>
-        <p>The App does not send data to a developer-operated server or a third-party advertising or analytics service. It does not use data for advertising, create user profiles, or track people across apps or websites.</p>
+                // ボタンの見た目更新
+                btnJa.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                // 英語を表示し、日本語を隠す
+                jpSection.style.display = 'none';
+                enSection.style.display = 'block';
+                summaryJa.style.display = 'none';
+                summaryEn.style.display = 'block';
+                separator.style.display = 'none';
 
-        <h2>5. Retention and deletion</h2>
-        <p>The Send List, on-device copies or references for selected items, and transfer history remain on your device until you delete them. In the App, choose Settings and then Delete Send List and History to remove the Send List, copies or references stored by the App, and transfer history. Your original photos, contacts, and documents are not deleted.</p>
+                // ボタンの見た目更新
+                btnEn.classList.add('active');
+                btnJa.classList.remove('active');
+            }
+        }
 
-        <h2>6. Permissions and withdrawing consent</h2>
-        <p>You can change or revoke Photos and Contacts permissions for the macOS App at any time in System Settings. Related selection and repeat-transfer features stop working after access is revoked. You can stop new Siri and Spotlight suggestions at any time in the App’s settings.</p>
-
-        <h2>7. Changes to this policy</h2>
-        <p>If the App’s data practices change, the developer will update this policy and the App Privacy answers in App Store Connect. Material changes will be communicated in the App or on this public page.</p>
-
-        <h2>8. Contact</h2>
-        <p>For questions about this policy, use the developer support contact listed on the MatomeDrop product page in the App Store.</p>
-    </section>
-
-    <footer>
-        &copy; 2026 MatomeDrop. All rights reserved.
-    </footer>
-</div>
+        // 初期状態の設定（ページ読み込み時に実行）
+        window.onload = () => {
+            switchLanguage('ja');
+        };
+    </script>
 
 </body>
+
 </html>
