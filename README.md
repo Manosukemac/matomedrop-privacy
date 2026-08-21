@@ -1,1 +1,0 @@
-# matomedrop-privacy
