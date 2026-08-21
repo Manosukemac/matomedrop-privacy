@@ -1,42 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MatomeDrop support contact in Japanese and English.">
-    <title>MatomeDrop サポート</title>
-    <style>
-      :root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; line-height: 1.65; }
-      body { margin: 0; }
-      main { max-width: 760px; margin: 0 auto; padding: 40px 24px 72px; }
-      h1 { line-height: 1.2; margin-bottom: 8px; }
-      h2 { margin-top: 36px; }
-      nav { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0 36px; }
-      section[lang="en"] { border-top: 1px solid #8e8e93; margin-top: 56px; padding-top: 32px; }
-      a { color: #06c; }
-      @media (prefers-color-scheme: dark) { a { color: #2997ff; } }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>MatomeDrop サポート</h1>
-      <nav aria-label="Language and related pages">
-        <a href="#japanese">日本語</a>
-        <a href="#english" lang="en">English</a>
-        <a href="./">プライバシーポリシー</a>
-      </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MatomeDropのサポート窓口です。日本語・英語でお問い合わせ方法をご案内します。">
+  <title>MatomeDrop サポート</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --accent-color: #007aff;
+    }
 
-      <section id="japanese" lang="ja">
-        <h2>お問い合わせ</h2>
-        <p>MatomeDropに関するお問い合わせは、<a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>までお送りください。</p>
-        <p>お問い合わせには、問題確認に不要な写真、連絡先、書類などの個人情報を添付しないでください。</p>
-      </section>
+    * { box-sizing: border-box; }
 
-      <section id="english" lang="en">
-        <h2>Contact</h2>
-        <p>For MatomeDrop support, email <a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>.</p>
-        <p>Please do not attach photos, contacts, documents, or other personal information unless it is necessary to investigate your issue.</p>
-      </section>
-    </main>
-  </body>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.8;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .last-updated {
+      margin: 0;
+      color: #777777;
+      font-size: 0.9rem;
+    }
+
+    .lang-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .lang-switcher button {
+      padding: 8px 18px;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid var(--primary-color);
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .lang-switcher button:hover,
+    .lang-switcher button.active {
+      color: #ffffff;
+      background: var(--primary-color);
+    }
+
+    .lang-switcher button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 3px;
+    }
+
+    .summary-card {
+      padding: 25px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #eef2ff 0%, #f8f9fa 100%);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 8px;
+    }
+
+    .summary-card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      border: none;
+    }
+
+    .summary-card p { margin-bottom: 0; }
+
+    section {
+      padding: 30px;
+      margin-bottom: 30px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      padding-bottom: 12px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      border-bottom: 2px solid #eeeeee;
+    }
+
+    p { margin: 0 0 1em; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent-color); }
+
+    footer {
+      padding: 40px 0;
+      color: #777777;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 30px 15px; }
+      h1 { font-size: 1.8rem; }
+      section { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="page-title">MatomeDrop サポート</h1>
+      <p class="last-updated" id="last-updated">最終更新日：2026年8月21日</p>
+    </header>
+
+    <div class="lang-switcher" role="group" aria-label="表示言語 / Display language">
+      <button type="button" onclick="switchLanguage('ja')" id="btn-ja" class="active" aria-pressed="true" aria-controls="summary-ja jp">日本語</button>
+      <button type="button" onclick="switchLanguage('en')" id="btn-en" aria-pressed="false" aria-controls="summary-en en" lang="en">English</button>
+    </div>
+
+    <div class="summary-card">
+      <h2 id="summary-title">💡 お問い合わせ</h2>
+      <div id="summary-ja" lang="ja">
+        <p><strong>MatomeDropに関するお問い合わせ</strong><br>
+          サポートメール：<a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a></p>
+      </div>
+      <div id="summary-en" lang="en" hidden>
+        <p><strong>Contact MatomeDrop Support</strong><br>
+          Support email: <a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a></p>
+      </div>
+    </div>
+
+    <section id="jp" lang="ja">
+      <h2>サポート窓口</h2>
+      <p>MatomeDropに関するお問い合わせは、<a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>までメールでお送りください。</p>
+      <p>お問い合わせには、問題確認に不要な写真、連絡先、書類などの個人情報を添付しないでください。</p>
+      <p><a href="./">プライバシーポリシーを見る</a></p>
+    </section>
+
+    <section id="en" lang="en" hidden>
+      <h2>Contact</h2>
+      <p>For MatomeDrop support, email <a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>.</p>
+      <p>Please do not attach photos, contacts, documents, or other personal information that is not necessary to describe the issue.</p>
+      <p><a href="./">View the Privacy Policy</a></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 MatomeDrop. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function switchLanguage(lang) {
+      const isJapanese = lang === 'ja';
+      document.documentElement.lang = lang;
+      document.getElementById('jp').hidden = !isJapanese;
+      document.getElementById('en').hidden = isJapanese;
+      document.getElementById('summary-ja').hidden = !isJapanese;
+      document.getElementById('summary-en').hidden = isJapanese;
+      document.getElementById('btn-ja').classList.toggle('active', isJapanese);
+      document.getElementById('btn-en').classList.toggle('active', !isJapanese);
+      document.getElementById('btn-ja').setAttribute('aria-pressed', String(isJapanese));
+      document.getElementById('btn-en').setAttribute('aria-pressed', String(!isJapanese));
+      document.getElementById('page-title').textContent = isJapanese ? 'MatomeDrop サポート' : 'MatomeDrop Support';
+      document.getElementById('last-updated').textContent = isJapanese ? '最終更新日：2026年8月21日' : 'Last updated: August 21, 2026';
+      document.getElementById('summary-title').textContent = isJapanese ? '💡 お問い合わせ' : '💡 Contact';
+      document.title = isJapanese ? 'MatomeDrop サポート' : 'MatomeDrop Support';
+    }
+  </script>
+</body>
 </html>
+
