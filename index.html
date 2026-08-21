@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - MatomeDrop</title>
+    <meta name="description" content="MatomeDropのプライバシーポリシー（日本語・英語） / MatomeDrop Privacy Policy in Japanese and English.">
+    <title>MatomeDrop プライバシーポリシー</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -67,6 +68,11 @@
             color: white;
         }
 
+        .lang-switcher button:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
         .summary-card {
             background: linear-gradient(135deg, #eef2ff, #f8f9fa);
             border-left: 4px solid var(--accent-color);
@@ -104,13 +110,6 @@
             margin-bottom: 10px;
         }
 
-        .lang-separator {
-            margin: 60px 0;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #ddd;
-        }
-
         footer {
             text-align: center;
             padding: 40px;
@@ -134,34 +133,36 @@
 
     <div class="container">
         <header>
-            <h1 id="page-title">Privacy Policy</h1>
-            <p class="last-updated">最終更新日：2026年8月14日 / Last updated: August 14, 2026</p>
+            <h1 id="page-title">MatomeDrop プライバシーポリシー</h1>
+            <p class="last-updated" id="last-updated">最終更新日：2026年8月21日</p>
         </header>
 
         <!-- 言語切り替えボタン -->
-        <div class="lang-switcher">
-            <button onclick="switchLanguage('ja')" id="btn-ja" class="active">日本語</button>
-            <button onclick="switchLanguage('en')" id="btn-en">English</button>
+        <div class="lang-switcher" role="group" aria-label="表示言語 / Display language">
+            <button type="button" onclick="switchLanguage('ja')" id="btn-ja" class="active" aria-pressed="true"
+                aria-controls="summary-ja jp">日本語</button>
+            <button type="button" onclick="switchLanguage('en')" id="btn-en" aria-pressed="false"
+                aria-controls="summary-en en" lang="en">English</button>
         </div>
 
         <div class="summary-card">
-            <h2 id="summary-title">💡 要約 (Quick Summary)</h2>
+            <h2 id="summary-title">💡 要約</h2>
             <!-- 要約の日本語部分 -->
-            <div id="summary-ja">
+            <div id="summary-ja" lang="ja">
                 <p><strong style="font-size: 1.1rem;">MatomeDropは、ユーザーの個人データを収集しません。</strong><br>
-                    すべての処理はデバイス内（On-device）で行われ、開発者がデータにアクセスしたり、広告やトラッキングに使用したりすることはありません。</p>
+                    送信準備、履歴、おすすめ表示など、本アプリによる処理は端末内で行われます。開発者がデータにアクセスしたり、広告やトラッキングに使用したりすることはありません。</p>
             </div>
             <!-- 要約の英語部分 -->
-            <div id="summary-en" style="display: none;">
+            <div id="summary-en" lang="en" hidden>
                 <p><strong style="font-size: 1.1rem;">MatomeDrop does not collect any personal data from
                         users.</strong><br>
-                    All processing is done on-device, and developers cannot access the data or use it for advertising or
-                    tracking.</p>
+                    The App processes transfer preparation, history, and recommendations on-device. The developer cannot
+                    access the data or use it for advertising or tracking.</p>
             </div>
         </div>
 
         <!-- 日本語セクション -->
-        <section id="jp">
+        <section id="jp" lang="ja">
             <h2>1. 概要</h2>
             <p>MatomeDrop（以下「本アプリ」）は、写真、連絡先、書類を選んでAirDropで共有するためのアプリです。本アプリの開発者は、本アプリを通じて個人データを収集しません。本アプリは、開発者が運営するサーバー、広告SDK、解析SDK、トラッキング技術を使用しません。
             </p>
@@ -191,25 +192,24 @@
 
             <h2>5. 保存期間と削除</h2>
             <p>送信リスト、選択項目の端末内コピーまたは参照、送信履歴は、ユーザーが削除するまで端末内に保持されます。アプリ内の「設定」から「送信リストと履歴を削除」を選ぶと、本アプリが保存した送信リスト、項目のコピーまたは参照、および送信履歴を削除できます。元の写真、連絡先、書類は削除されません。
+                アプリのデータをOSの機能で削除した場合も、本アプリの端末内データは削除されます。
             </p>
 
             <h2>6. 権限と同意の撤回</h2>
             <p>macOSの写真・連絡先の許可は、システム設定からいつでも変更または取り消せます。許可を取り消すと、関連する選択・再送機能は利用できなくなります。SiriとSpotlightへの新しい提案は、アプリ内設定でいつでも停止できます。
+                iOSおよびiPadOSでは、各システムピッカーを閉じることで選択を中止できます。
             </p>
 
             <h2>7. ポリシーの変更</h2>
             <p>本アプリのデータ取扱いが変わる場合、本ポリシーとApp Store ConnectのApp Privacy申告を更新し、重要な変更はアプリ内または公開ページで案内します。</p>
 
             <h2>8. お問い合わせ</h2>
-            <p>本ポリシーに関するお問い合わせは、MatomeDropのApp Store製品ページに記載された開発者サポート窓口をご利用ください。</p>
+            <p>本ポリシーに関するお問い合わせは、<a href="./support.html">MatomeDropサポートページ</a>または<a
+                    href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>をご利用ください。</p>
         </section>
 
-        <div class="lang-separator">
-            <p>English Version Below</p>
-        </div>
-
         <!-- 英語セクション -->
-        <section id="en" style="display: none;">
+        <section id="en" lang="en" hidden>
             <h2>1. Overview</h2>
             <p>MatomeDrop (the “App”) helps people select photos, contacts, and documents to share with AirDrop. The
                 developer does not collect personal data through the App. The App uses no developer-operated server,
@@ -246,20 +246,22 @@
             <p>The Send List, on-device copies or references for selected items, and transfer history remain on your
                 device until you delete them. In the App, choose Settings and then Delete Send List and History to
                 remove the Send List, copies or references stored by the App, and transfer history. Your original
-                photos, contacts, and documents are not deleted.</p>
+                photos, contacts, and documents are not deleted. Removing the App’s data with operating-system controls
+                also removes the App’s on-device data.</p>
 
             <h2>6. Permissions and withdrawing consent</h2>
             <p>You can change or revoke Photos and Contacts permissions for the macOS App at any time in System
                 Settings. Related selection and repeat-transfer features stop working after access is revoked. You can
-                stop new Siri and Spotlight suggestions at any time in the App’s settings.</p>
+                stop new Siri and Spotlight suggestions at any time in the App’s settings. On iOS and iPadOS, dismiss a
+                system picker to cancel a selection.</p>
 
             <h2>7. Changes to this policy</h2>
             <p>If the App’s data practices change, the developer will update this policy and the App Privacy answers in
                 App Store Connect. Material changes will be communicated in the App or on this public page.</p>
 
             <h2>8. Contact</h2>
-            <p>For questions about this policy, use the developer support contact listed on the MatomeDrop product page
-                in the App Store.</p>
+            <p>For questions about this policy, visit the <a href="./support.html">MatomeDrop Support page</a> or email
+                <a href="mailto:beetles_streaky_0d@icloud.com">beetles_streaky_0d@icloud.com</a>.</p>
         </section>
 
         <footer>
@@ -274,44 +276,44 @@
          */
         function switchLanguage(lang) {
             // 各要素の取得
+            const isJapanese = lang === 'ja';
             const jpSection = document.getElementById('jp');
             const enSection = document.getElementById('en');
             const summaryJa = document.getElementById('summary-ja');
             const summaryEn = document.getElementById('summary-en');
-            const separator = document.querySelector('.lang-separator');
-
             const btnJa = document.getElementById('btn-ja');
             const btnEn = document.getElementById('btn-en');
+            const pageTitle = document.getElementById('page-title');
+            const lastUpdated = document.getElementById('last-updated');
+            const summaryTitle = document.getElementById('summary-title');
 
-            if (lang === 'ja') {
-                // 日本語を表示し、英語を隠す
-                jpSection.style.display = 'block';
-                enSection.style.display = 'none';
-                summaryJa.style.display = 'block';
-                summaryEn.style.display = 'none';
-                separator.style.display = 'none';
+            jpSection.hidden = !isJapanese;
+            enSection.hidden = isJapanese;
+            summaryJa.hidden = !isJapanese;
+            summaryEn.hidden = isJapanese;
 
-                // ボタンの見た目更新
-                btnJa.classList.add('active');
-                btnEn.classList.remove('active');
-            } else {
-                // 英語を表示し、日本語を隠す
-                jpSection.style.display = 'none';
-                enSection.style.display = 'block';
-                summaryJa.style.display = 'none';
-                summaryEn.style.display = 'block';
-                separator.style.display = 'none';
+            btnJa.classList.toggle('active', isJapanese);
+            btnEn.classList.toggle('active', !isJapanese);
+            btnJa.setAttribute('aria-pressed', String(isJapanese));
+            btnEn.setAttribute('aria-pressed', String(!isJapanese));
 
-                // ボタンの見た目更新
-                btnEn.classList.add('active');
-                btnJa.classList.remove('active');
-            }
+            document.documentElement.lang = lang;
+            document.title = isJapanese
+                ? 'MatomeDrop プライバシーポリシー'
+                : 'MatomeDrop Privacy Policy';
+            pageTitle.textContent = isJapanese
+                ? 'MatomeDrop プライバシーポリシー'
+                : 'MatomeDrop Privacy Policy';
+            lastUpdated.textContent = isJapanese
+                ? '最終更新日：2026年8月21日'
+                : 'Last updated: August 21, 2026';
+            summaryTitle.textContent = isJapanese ? '💡 要約' : '💡 Quick Summary';
         }
 
         // 初期状態の設定（ページ読み込み時に実行）
-        window.onload = () => {
+        window.addEventListener('DOMContentLoaded', () => {
             switchLanguage('ja');
-        };
+        });
     </script>
 
 </body>
