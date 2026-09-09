@@ -312,7 +312,8 @@
 
         // 初期状態の設定（ページ読み込み時に実行）
         window.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('ja');
+            const params = new URLSearchParams(window.location.search);
+            switchLanguage(params.get('lang') === 'en' ? 'en' : 'ja');
         });
     </script>
 
