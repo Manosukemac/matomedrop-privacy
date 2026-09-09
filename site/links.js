@@ -1,0 +1,2 @@
+// Optional enhancement: HTML links remain usable without JavaScript.
+fetch(new URL('site-config.json', document.currentScript.src)).then(r => { if (!r.ok) throw Error(); return r.json(); }).then(c => { const url = c.app_store[document.documentElement.lang]; if (url && url.startsWith('https://apps.apple.com/')) document.querySelectorAll('[data-app-store]').forEach(a => a.href = url); }).catch(() => {});

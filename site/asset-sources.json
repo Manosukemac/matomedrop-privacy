@@ -1,0 +1,47 @@
+[
+  {
+    "source": "Approved MatomeDrop promotional image: iphone-ja.png",
+    "destination": "site/assets/iphone-ja.png",
+    "sha256": "a9367df89410914a2449eced26e91990014a61b4cc4246f41860f04d9f937983"
+  },
+  {
+    "source": "Approved MatomeDrop promotional image: ipad-ja.png",
+    "destination": "site/assets/ipad-ja.png",
+    "sha256": "6482a058490c3371dca8d154da869ff8f1fa674ca2ba9d61f43854aae5a35e62"
+  },
+  {
+    "source": "Approved MatomeDrop promotional image: mac-ja.jpg",
+    "destination": "site/assets/mac-ja.jpg",
+    "sha256": "d1bf7553532cc67bc3057280bb1776f80a8ceb78d89dcff8fd6dc7e55fe20a0e"
+  },
+  {
+    "source": "Apple official Download on the App Store badge (ja-JP)",
+    "destination": "site/assets/app-store-ja.svg",
+    "sha256": "988fe0a48015c5a56dac88172487a1f5cda96340b34d80fd94312d02e9f67865"
+  },
+  {
+    "source": "Approved MatomeDrop promotional image: iphone-en.png",
+    "destination": "site/assets/iphone-en.png",
+    "sha256": "b7e7d333b54f483bbf8013b86e4557342dc2d77496e274b396400b6074e362f3"
+  },
+  {
+    "source": "Approved MatomeDrop promotional image: ipad-en.png",
+    "destination": "site/assets/ipad-en.png",
+    "sha256": "706006dcbd14625d251a8a84f840da3cebd9d971e7beb2a7e7091c77121a0f45"
+  },
+  {
+    "source": "Approved MatomeDrop promotional image: mac-en.jpg",
+    "destination": "site/assets/mac-en.jpg",
+    "sha256": "b08507d81f29d7153395240e845cfcd406364f5922356141e80122e70025d448"
+  },
+  {
+    "source": "Apple official Download on the App Store badge (en-US)",
+    "destination": "site/assets/app-store-en.svg",
+    "sha256": "a26fc5b38380272c92e9019a2eb8b45542a66814b3e2b203772db8904b9fb99f"
+  },
+  {
+    "source": "Existing MatomeDrop app icon",
+    "destination": "site/assets/app-icon.png",
+    "sha256": "913dee9426d196a6956262f88e4d2b0263cac9d55f2ca1d006da50692b620dac"
+  }
+]
